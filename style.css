@@ -1,0 +1,425 @@
+/* 九州ラーメン食べ歩きブログ - 食欲をそそる配色 */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-red: #d32f2f;
+    --warm-orange: #ff6f00;
+    --golden-yellow: #ffa726;
+    --light-cream: #fff8e1;
+    --rich-brown: #5d4037;
+    --deep-red: #b71c1c;
+    --soft-beige: #fef5e7;
+    --text-dark: #212121;
+    --border-gold: #ffb74d;
+}
+
+body {
+    font-family: 'Hiragino Kaku Gothic Pro', 'ヒラギノ角ゴ Pro', 'Yu Gothic Medium', '游ゴシック Medium', 'Meiryo', メイリオ, sans-serif;
+    line-height: 1.8;
+    color: var(--text-dark);
+    background: linear-gradient(135deg, var(--soft-beige) 0%, var(--light-cream) 100%);
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* ヘッダー */
+header {
+    background: linear-gradient(135deg, var(--primary-red) 0%, var(--deep-red) 100%);
+    color: white;
+    padding: 3rem 0;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(211, 47, 47, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="rgba(255,255,255,0.05)"/></svg>');
+    background-size: 50px 50px;
+    opacity: 0.3;
+}
+
+header h1 {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    position: relative;
+    z-index: 1;
+    animation: fadeInDown 0.8s ease-out;
+}
+
+header .tagline {
+    font-size: 1.3rem;
+    opacity: 0.95;
+    position: relative;
+    z-index: 1;
+    letter-spacing: 0.1em;
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ナビゲーション */
+nav {
+    background: linear-gradient(90deg, var(--warm-orange) 0%, var(--golden-yellow) 100%);
+    box-shadow: 0 2px 10px rgba(255, 111, 0, 0.2);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+nav li {
+    margin: 0;
+}
+
+nav a {
+    display: block;
+    padding: 1rem 2rem;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 3px;
+    background: white;
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+nav a:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+nav a:hover::after {
+    width: 80%;
+}
+
+/* メインコンテンツ */
+main {
+    padding: 3rem 0;
+}
+
+/* ヒーローセクション */
+.hero {
+    background: linear-gradient(135deg, var(--warm-orange) 0%, var(--golden-yellow) 100%);
+    color: white;
+    padding: 3rem;
+    border-radius: 20px;
+    margin-bottom: 3rem;
+    box-shadow: 0 8px 30px rgba(255, 111, 0, 0.3);
+    text-align: center;
+    animation: fadeInUp 0.8s ease-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.hero p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* 地域セクション */
+.region-section {
+    margin-bottom: 4rem;
+    animation: fadeIn 1s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.region-section h2 {
+    font-size: 2.5rem;
+    color: var(--primary-red);
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 4px solid var(--golden-yellow);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* ラーメングリッド */
+.ramen-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+/* ラーメンカード */
+.ramen-card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    border: 3px solid transparent;
+}
+
+.ramen-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(211, 47, 47, 0.3);
+    border-color: var(--border-gold);
+}
+
+.card-header {
+    padding: 1.5rem;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card-header.hakata {
+    background: linear-gradient(135deg, var(--primary-red) 0%, var(--deep-red) 100%);
+}
+
+.card-header.kumamoto {
+    background: linear-gradient(135deg, #c62828 0%, #8e24aa 100%);
+}
+
+.card-header.kagoshima {
+    background: linear-gradient(135deg, var(--rich-brown) 0%, #4e342e 100%);
+}
+
+.card-header.nagasaki {
+    background: linear-gradient(135deg, #1565c0 0%, #0277bd 100%);
+}
+
+.card-header h3 {
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+.rating {
+    font-size: 1.2rem;
+    white-space: nowrap;
+}
+
+.card-body {
+    padding: 1.5rem;
+}
+
+.card-body p {
+    margin-bottom: 1rem;
+    line-height: 1.8;
+}
+
+.card-body strong {
+    color: var(--warm-orange);
+}
+
+.price {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--primary-red);
+    text-align: right;
+    margin-top: 1.5rem !important;
+    padding-top: 1rem;
+    border-top: 2px dashed var(--border-gold);
+}
+
+/* コツセクション */
+.tips {
+    margin: 4rem 0;
+    padding: 3rem;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.tips h2 {
+    font-size: 2.5rem;
+    color: var(--warm-orange);
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.tips-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.tip-card {
+    padding: 2rem;
+    background: linear-gradient(135deg, var(--light-cream) 0%, var(--soft-beige) 100%);
+    border-radius: 15px;
+    border-left: 5px solid var(--golden-yellow);
+    transition: all 0.3s ease;
+}
+
+.tip-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 25px rgba(255, 167, 38, 0.3);
+}
+
+.tip-card h3 {
+    color: var(--primary-red);
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+
+.tip-card p {
+    color: var(--text-dark);
+    line-height: 1.8;
+}
+
+/* フッター */
+footer {
+    background: linear-gradient(135deg, var(--rich-brown) 0%, #3e2723 100%);
+    color: white;
+    padding: 2rem 0;
+    text-align: center;
+    margin-top: 4rem;
+}
+
+footer p {
+    margin: 0.5rem 0;
+    opacity: 0.9;
+}
+
+/* レスポンシブデザイン */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2rem;
+    }
+
+    header .tagline {
+        font-size: 1rem;
+    }
+
+    nav a {
+        padding: 0.8rem 1rem;
+        font-size: 1rem;
+    }
+
+    .hero {
+        padding: 2rem;
+    }
+
+    .hero h2 {
+        font-size: 1.8rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+    .region-section h2 {
+        font-size: 1.8rem;
+    }
+
+    .ramen-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .tips {
+        padding: 2rem;
+    }
+
+    .tips-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.5rem;
+    }
+
+    .container {
+        padding: 0 15px;
+    }
+
+    nav ul {
+        flex-direction: column;
+    }
+
+    nav a {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .card-header h3 {
+        font-size: 1.2rem;
+    }
+
+    .price {
+        font-size: 1.5rem;
+    }
+}
+
+/* スクロールアニメーション */
+@media (prefers-reduced-motion: no-preference) {
+    .ramen-card {
+        animation: slideUp 0.6s ease-out;
+    }
+
+    @keyframes slideUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+}
